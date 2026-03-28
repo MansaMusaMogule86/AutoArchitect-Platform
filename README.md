@@ -1,11 +1,36 @@
-<div align="center">
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+# AutoArchitect Platform
 
-  <h1>Built with AI Studio</h2>
+AI-driven project orchestration platform for UI, PRD, and Code.
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## Web Interface
+1. Open the landing page.
+2. Enter your project description.
+3. Click "Build Now" to run the 3-step pipeline.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## CLI Tool (studio)
+The CLI shares the core logic with the web platform.
 
-</div>
+### Installation
+```bash
+npm install -g @autoarch/cli
+```
+
+### Usage
+```bash
+# Set your API Key
+export API_KEY=your_key_here
+
+# Generate a project
+studio generate --name "DentistCRM" --description "A CRM for dentists with appointment scheduling" --output ./dentist-crm
+```
+
+### Flags
+- `--name`: The name of your project.
+- `--description`: A detailed prompt describing what to build.
+- `--output`: The local directory where files will be saved.
+
+## Architecture
+- `core/`: Shared logic and versioned prompts.
+- `cli/`: CLI entry point using Node.js.
+- `App.tsx`: Next.js/React generator interface.

@@ -1,0 +1,5 @@
+{
+  "name": "AutoArchitect Platform",
+  "description": "A high-performance AI-driven orchestration platform for generating UI blueprints, PRDs, and code scaffolds via Web and CLI.",
+  "requestFramePermissions": []
+}

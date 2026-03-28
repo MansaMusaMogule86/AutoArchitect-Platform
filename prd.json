@@ -1,0 +1,125 @@
+
+{
+  "product_overview": {
+    "name": "AutoArchitect",
+    "version": "1.0.0-mvp",
+    "description": "A dual-interface orchestration engine that transforms project descriptions into high-fidelity technical assets through a 3-step AI pipeline.",
+    "core_value_prop": "Bridge the gap between vision and code with zero friction using a shared logic core between CLI and Web.",
+    "interfaces": [
+      "Public Next.js Landing Page (SEO-first)",
+      "Cross-platform Node.js CLI tool"
+    ]
+  },
+  "user_goals": [
+    "Eliminate manual boilerplate generation for new SaaS projects.",
+    "Provide technical stakeholders with a machine-readable PRD (JSON) and a human-readable blueprint.",
+    "Enable local development parity via CLI commands that mirror web functionality.",
+    "Ensure SEO dominance for 'code generation' and 'boilerplate' keywords."
+  ],
+  "sitemap": {
+    "root": "/",
+    "routes": [
+      {
+        "path": "/",
+        "label": "Home",
+        "description": "Marketing landing page with one-click generator"
+      },
+      {
+        "path": "/docs",
+        "label": "Documentation",
+        "description": "CLI installation guides and API documentation"
+      },
+      {
+        "path": "/blueprint/[id]",
+        "label": "Blueprint Viewer",
+        "description": "Interactive view of the generated UI/UX and PRD"
+      },
+      {
+        "path": "/showcase",
+        "label": "Showcase",
+        "description": "Gallery of top-performing generated scaffolds"
+      }
+    ]
+  },
+  "cli_specification": {
+    "binary_name": "autoarch",
+    "commands": [
+      {
+        "command": "init",
+        "description": "Configure the local environment and authenticate with the platform."
+      },
+      {
+        "command": "generate <prompt>",
+        "flags": {
+          "--output": "Path to output folder",
+          "--step": "Run specific pipeline step: uiux | prd | scaffold",
+          "--format": "Return type: text | json | file",
+          "--version": "Target prompt version"
+        }
+      }
+    ]
+  },
+  "web_routes": {
+    "pages": [
+      "app/page.tsx",
+      "app/docs/page.tsx",
+      "app/generate/page.tsx",
+      "app/blueprint/[id]/page.tsx"
+    ],
+    "api": [
+      "app/api/pipeline/route.ts",
+      "app/api/webhooks/supabase/route.ts"
+    ]
+  },
+  "pipeline_architecture": {
+    "orchestrator": "AutoArchCore",
+    "steps": [
+      {
+        "step": 1,
+        "name": "UI/UX Blueprint",
+        "agent": "DesignAgent",
+        "output": "Markdown Component Hierarchy & Tailwind Palette"
+      },
+      {
+        "step": 2,
+        "name": "PRD JSON",
+        "agent": "PMAgent",
+        "output": "Strictly Valid JSON Schema"
+      },
+      {
+        "step": 3,
+        "name": "Codebase Scaffold",
+        "agent": "EngineerAgent",
+        "output": "ZIP/File Tree with Next.js/TypeScript configuration"
+      }
+    ],
+    "shared_logic": "@autoarch/core library used by both Next.js Edge Functions and Node.js CLI"
+  },
+  "file_structure": {
+    "layout": "Monorepo (pnpm workspaces)",
+    "directories": [
+      "packages/core (Logic)",
+      "packages/cli (Glue)",
+      "apps/web (Next.js)",
+      "prompts/v1/ (Versioning)",
+      "supabase/ (Migrations)"
+    ]
+  },
+  "prompt_storage_strategy": {
+    "storage": "Git-tracked flat files in /prompts directory",
+    "versioning": "Semantic versioning folders (v1, v1.1, v2)",
+    "runtime": "Hydrated via edge-config or local file system based on interface context"
+  },
+  "non_functional_requirements": {
+    "performance": "P99 Response time < 40s for full 3-step generation",
+    "seo": "100/100 Lighthouse SEO score on Web Landing Page",
+    "mobile": "Responsive generator interface with persistent progress tracking",
+    "reliability": "Retry-logic with exponential backoff for LLM rate limits"
+  },
+  "future_extensibility": [
+    "SEO Generator Tool (Step 4)",
+    "Live Preview Editor for UI/UX blueprints",
+    "Direct GitHub Repository creation",
+    "Stripe integration for 'Generation Credits'"
+  ]
+}
